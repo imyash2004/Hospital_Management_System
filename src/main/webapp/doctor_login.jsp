@@ -21,7 +21,20 @@
 			<div class="col-md-4 offset-md-4">
 				<div class="card paint-card container">
 					<p class="fs-4 text-center">Doctor Login</p>
-					<form  method="post">
+					<c:if test="${not empty sucMsg }">
+					<p class="text-center text-success fs-3">
+					${sucMsg}</p>
+					<c:remove var="sucMsg" scope="session"/>
+					</c:if>
+					
+					
+					
+					<c:if test="${not empty error }">
+					<p class="text-center text-danger fs-5">
+					${error}</p>
+					<c:remove var="error" scope="session"/>
+					</c:if>
+					<form action="doctorLogin" method="post">
 												<div class="mb-4">
 													<label class="form-label ">Email Address</label> <input required
 														name="email" type="email" class="form-control">
@@ -32,7 +45,7 @@
 														name="password" type="password" class="form-control">
 												</div>
 						
-						<button class="btn bg-info text-dark col-md-12" type="button">Login</button>
+						<button class="btn bg-info text-dark col-md-12" type="submit">Login</button>
 					<div class="container p-4"></div>
 					</form>
 					

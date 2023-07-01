@@ -25,7 +25,7 @@
 			</c:if>
 			
 			
-<!-- 				<li class="nav-item"><a class="nav-link active"
+				<!-- <li class="nav-item"><a class="nav-link active"
 					aria-current="page" href="admin_login.jsp"><i class="fa-solid fa-arrow-right-to-bracket"></i> ADMIN</a></li>
 				<li class="nav-item"><a class="nav-link active"
 					aria-current="page" href="user_login.jsp">USER</a></li>
@@ -33,7 +33,7 @@
 					aria-current="page" href="doctor_login.jsp">DOCTOR</a></li>
 				<li class="nav-item"><a class="nav-link active"
 					aria-current="page" href="#">APPOINTMENT</a></li>
-					 -->
+					  -->
 					
 					
 					<c:if test="${not empty userObj }">

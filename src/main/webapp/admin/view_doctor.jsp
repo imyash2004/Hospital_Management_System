@@ -23,10 +23,11 @@
 	<%@include file="navbar.jsp"%>
 	<div class="container-fluid p-3">
 		<div class="row">
-			<div class="col-md-4 offset-md-4">
+			
+			<div class="col-md-12">
 				<div class="card paint-card">
 					<div class="card-body">
-						<p class="fs-3 text-center">Add Doctor</p>
+						<p class="fs-3 text-center">Doctor Details</p>
 						<c:if test="${not empty sucMsg }">
 							<div class="text-center text-success fs-3" role="alert">${sucMsg}</div>
 							<c:remove var="sucMsg" scope="session" />
@@ -38,62 +39,6 @@
 							<p class="text-center text-danger fs-3">${error}</p>
 							<c:remove var="error" scope="session" />
 						</c:if>
-						<form action="../addDoctor" method="post">
-							<div class="mb-2">
-								<label class="form-label">Full Name</label><input type="text"
-									required name="full_name" class="form-control">
-
-							</div>
-							<div class="mb-3">
-								<label class="form-label">DOB</label><input type="date" required
-									name="dob" class="form-control">
-
-							</div>
-							<div class="mb-3">
-								<label class="form-label">Qualification</label><input
-									type="text" required name="qualification" class="form-control">
-
-							</div>
-							<div class="mb-3">
-								<label class="form-label">Specialist</label><select required
-									name="specialist" class="form-control">
-									<option>--select--</option>
-									<%SpecialistDao dao=new SpecialistDao(DbConnect.getCon());
-									List<Specalist> l=dao.getAllSpecialist();
-									for(Specalist s:l){%>
-										<option><%=s.getSpecialistName() %></option>
-									<%}
-									%>
-									
-								</select>
-
-							</div>
-							<div class="mb-3">
-								<label class="form-label">Email</label><input type="text"
-									required name="email" class="form-control">
-
-							</div>
-							<div class="mb-3">
-								<label class="form-label">Mob No.</label><input type="text"
-									required name="mobno" class="form-control">
-
-							</div>
-							<div class=" mb-3">
-								<label class="form-label">Password</label><input type="password"
-									required name="password" class="form-control">
-
-							</div>
-							
-							<button type="submit" class="btn btn-primary">Submit</button>
-						</form>
-					</div>
-				</div>
-			</div>
-
-<%-- 			<div class="col-md-8">
-				<div class="card paint-card">
-					<div class="card-body">
-						<p class="fs-3 text-center">Doctor Details</p>
 						<table class="table">
 							<thead>
 								<tr>
@@ -121,7 +66,7 @@
 							<td><%=d.getMobNo() %></td>
 							<td>
 							<a href="edit_doctor.jsp?id=<%= d.getId() %>" class="btn btn-sm btn-primary">Edit</a>
-							<a href="#" class="btn btn-sm btn-danger">Delete</a>
+							<a href="../deletedoctor?id=<%=d.getId() %>" class="btn btn-sm btn-danger">Delete</a>
 							
 							</td>
 							
@@ -140,7 +85,7 @@
 						</table>
 					</div>
 				</div>
-			</div> --%>
+			</div>
 		</div>
 
 	</div>

@@ -8,7 +8,7 @@ public class DbConnect {
 	public static Connection getCon() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/hospital11","root","vaibhavag");
+			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/hospital11?autoReconnect=true&useSSL=false","root","vaibhavag");
 			 
 			
 		} catch (Exception e) {

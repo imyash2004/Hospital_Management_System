@@ -94,7 +94,7 @@
       <div class="modal-body">
         <form action="../addSpecialist" method="post">
         <div class="from-group">
-        <label>Enter Specialist Name</label><input typr="text"
+        <label>Enter Specialist Name</label><input type="text"
         
         name="specName" class="from-control">
         </div>

@@ -20,7 +20,7 @@
 				<li class="nav-item"><a class="nav-link active"
 					aria-current="page" href="doctor_login.jsp">DOCTOR</a></li>
 				<li class="nav-item"><a class="nav-link active"
-					aria-current="page" href="#">APPOINTMENT</a></li>
+					aria-current="page" href="Appointment.jsp">APPOINTMENT</a></li>
 			
 			</c:if>
 			
@@ -38,9 +38,9 @@
 					
 					<c:if test="${not empty userObj }">
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="#">APPOINTMENT</a></li>
+						aria-current="page" href="Appointment.jsp">APPOINTMENT</a></li>
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="#">VIEW APPOINTMENT</a></li>
+						aria-current="page" href="view_appointment.jsp">VIEW APPOINTMENT</a></li>
 
 <div class="dropdown">
   <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">

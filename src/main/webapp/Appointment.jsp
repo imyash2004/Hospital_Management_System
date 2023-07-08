@@ -1,3 +1,7 @@
+<%@page import="com.entity.Doctor"%>
+<%@page import="java.util.List"%>
+<%@page import="com.dao.DoctorDao"%>
+<%@page import="com.db.DbConnect"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%><%@page
@@ -25,14 +29,14 @@
 <body>
 	<%@include file="component/navbar.jsp"%>
 	<div class="container-fluid backImg p-5">
-		<p class="text-center fs-2 text-white">
+		<p class="text-center fs-2 text-white"></p> 
 	</div>
 
 
-	<div class="container p-3">
+<div class="container p-3"> 
 		<div class="row">
 			<div class="col-md-6 p-5">
-				<img alt="" src="img/i3.jpeg">
+				<img alt="" src="img/hos4.webp">
 			</div>
 
 			<div class="col-md-6">
@@ -50,12 +54,12 @@
 							<p class="text-center text-danger fs-4">${error}</p>
 							<c:remove var="error" scope="session" />
 						</c:if>
-						<form class="row g-3" action="add_appoint" method="post">
-							<input type="hidden" name="user_id" value="${userObj.id }">
+						<form class="row g-3 container" action="add_appoint" method="post">
+							<input type="hidden" name="userId" value="${userObj.id }">
 
 							<div class="col-md-6">
 								<label for="inputEmail4" class="form-label">Full name</label><input
-									required type="text" class="form-control" name="fullname">
+									required type="text" class="form-control" name="fullName">
 
 
 							</div>
@@ -108,9 +112,29 @@
 
 							<div class="col-md-6">
 								<label for="inputPassword4" class="form-label">Doctor</label><select
-									required class="form-control" name="doct">
+									required class="form-control" name="doctor_id">
 									<option value="">...select...</option>
-									<option value="">Doctor Name</option>
+									
+									
+									<% 
+									DoctorDao dao=new DoctorDao(DbConnect.getCon());
+										List<Doctor> list=dao.getAllDoctor();
+										
+									
+									
+									for (Doctor d:list){
+										%>		
+										
+										
+										<option value="<%=d.getId() %>"><%=d.getFullName() %>(<%=d.getSpecialist() %>)</option>
+										
+										<%}
+									
+									
+									
+									
+									%>
+									
 
 
 								</select>
@@ -118,13 +142,27 @@
 
 							</div>
 
-							<div class="col-md-6">
+							<div class="col-md-12">
 								<label>Full Address</label>
 								<textarea rows="3" cols="" required name="address"
 									class="form-control"></textarea>
 
 
 							</div>
+							
+							<c:if test ="${empty userObj }">
+							
+							<a href="user_login.jsp"
+							class="col-md-6 offset-md-3 btn btn-success ">Submit</a>
+							</c:if>
+							<c:if test ="${not empty userObj }">
+							
+							<button
+							class="col-md-6 offset-md-3 btn btn-success">Submit</button>
+							</c:if>
+							
+							
+							
 
 
 
@@ -134,7 +172,9 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> 
 
 </body>
 </html>
+
+

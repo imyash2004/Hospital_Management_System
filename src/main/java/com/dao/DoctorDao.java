@@ -166,4 +166,83 @@ public boolean deleteDoctor(int id) {
 	 System.out.println("ibced");
 	 return d;
  }
+ public int countDoc() {
+	 int i=0;
+	 try {
+		String sql="select * from doctor";
+		PreparedStatement ps=con.prepareStatement(sql);
+		ResultSet rs=ps.executeQuery();
+		while(rs.next()) {
+			i++;
+		}
+	} catch (Exception e) {
+		// TODO: handle exception
+		e.printStackTrace();
+	}
+	 return i;
+ }
+ public int countApp() {
+	 int i=0;
+	 try {
+		String sql="select * from appointment";
+		PreparedStatement ps=con.prepareStatement(sql);
+		ResultSet rs=ps.executeQuery();
+		while(rs.next()) {
+			i++;
+		}
+	} catch (Exception e) {
+		// TODO: handle exception
+		e.printStackTrace();
+	}
+	 return i;
+ }
+ public int countuser() {
+	 int i=0;
+	 try {
+		String sql="select * from user_dtls";
+		PreparedStatement ps=con.prepareStatement(sql);
+		ResultSet rs=ps.executeQuery();
+		while(rs.next()) {
+			i++;
+		}
+	} catch (Exception e) {
+		// TODO: handle exception
+		e.printStackTrace();
+	}
+	 return i;
+	 
+ }
+ public int countspec() {
+	 int i=0;
+	 try {
+		 String sql="select * from specialist";
+			PreparedStatement ps=con.prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next()) {
+				i++;
+			}
+	} catch (Exception e) {
+		// TODO: handle exception
+		e.printStackTrace();
+	}
+	 return i;
+	 
+ }
+ public int countAppByDoctorId(int did) {
+	 int i=0;
+	 try {
+		String sql="select * from appointment where doctorid=?";
+		PreparedStatement ps=con.prepareStatement(sql);
+		ps.setInt(1,did);
+		ResultSet rs=ps.executeQuery();
+		while(rs.next()) {
+			i++;
+		}
+	} catch (Exception e) {
+		// TODO: handle exception
+		e.printStackTrace();
+	}
+	 return i;
+ }
+ 
 }

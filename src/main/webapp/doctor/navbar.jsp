@@ -15,10 +15,10 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-				<li class="nav-item"><a class="nav-link active" href="home.jsp">HOME</a></li>
+				<li class="nav-item"><a class="nav-link active" href="index.jsp">HOME</a></li>
 
 				
-				<li class="nav-item"><a class="nav-link active" href="appointment.jsp">PATIENT</a></li>
+				<li class="nav-item"><a class="nav-link active" href="Patient.jsp">PATIENT</a></li>
 
 			</ul>
 			<form class="d-flex">

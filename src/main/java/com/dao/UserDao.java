@@ -3,6 +3,8 @@ package com.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.entity.User;
 import com.mysql.cj.protocol.Resultset;
@@ -55,5 +57,28 @@ public class UserDao {
 			e.printStackTrace();
 		}
 		return u;
+	}
+	public List<User> getAllUsers(){
+		User u=null;
+		List<User>list=new ArrayList<User>();
+		try {
+			String sql="select * from user_dtls";
+			PreparedStatement ps=con.prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next()) {
+				u=new User();
+				u.setId(rs.getInt(1));
+				u.setFullName(rs.getString(2));
+				u.setEmail(rs.getString(3));
+				u.setPassword(rs.getString(4));
+				list.add(u);
+				
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
+		return list;
 	}
 }

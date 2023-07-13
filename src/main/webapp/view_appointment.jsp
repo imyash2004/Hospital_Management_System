@@ -7,6 +7,8 @@
 <%@page import="com.dao.AppointmentDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%><%@page
+	isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,6 +22,9 @@
 </style>
 </head>
 <body>
+<c:if test="${empty userObj }">
+	<c:redirect url="user_login.jsp"></c:redirect>
+	</c:if>
 
 	<%@include file="component/navbar.jsp"%>
 	<div class=container-fluid backImgp-5">

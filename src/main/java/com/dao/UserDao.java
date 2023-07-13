@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.Spring;
+
 import com.entity.User;
 import com.mysql.cj.protocol.Resultset;
 
@@ -80,5 +82,42 @@ public class UserDao {
 		}
 		
 		return list;
+	}
+	public boolean cehckPass(int id ,String pass) {
+		boolean f=false;
+		try {
+			String sql="select * from user_dtls where id=? and password=?";
+			PreparedStatement ps=con.prepareStatement(sql);
+			ps.setInt(1, id);
+			ps.setString(2, pass);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next()) {
+				f=true;
+			}
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return f;
+		
+	}
+	public boolean changePass(int id,String pass) {
+		boolean f=false;
+		try {
+			String sql="update user_dtls set password=? where id=?";
+			PreparedStatement ps=con.prepareStatement(sql);
+			ps.setString(1, pass);
+			ps.setInt(2, id);
+			int i=ps.executeUpdate();
+			if(i==1) {
+				f=true;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return f;
 	}
 }

@@ -1,13 +1,9 @@
-<%@page import="com.entity.Doctor"%>
-<%@page import="com.dao.DoctorDao"%>
-<%@page import="javax.print.Doc"%>
+ 
+<!DOCTYPE html>
+<%@page import="com.db.DbConnect"%>
 <%@page import="com.entity.Specalist"%>
 <%@page import="java.util.List"%>
-<%@page import="com.db.DbConnect"%>
 <%@page import="com.dao.SpecialistDao"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">

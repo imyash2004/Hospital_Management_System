@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: hospital-webapp
+    env: docker
+    dockerfilePath: Dockerfile
+    plan: free
+    ports:
+      - 8080
+    autoDeploy: true
+
+databases:
+  - name: hospital-db
+    engine: mysql
+    version: 8
+    plan: free
+    region: oregon
